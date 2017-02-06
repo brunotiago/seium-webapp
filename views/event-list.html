@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-title">Football Matches</div>
+    <div class="card-header">
+      <div class="header-detail">Today</div>
+      <div class="header-markets">
+        <div class="market">win</div>
+        <div class="market separator">draw</div>
+        <div class="market separator">win</div>
+      </div>
+    </div>
+    <div class="event" ng-repeat="event in eventListCtrl.events track by event.eventId" ng-class="{'inplay': event.isInplay}">
+      <div class="event-details">
+        <div class="event-time">{{::event.startTime}}</div>
+        <div class="event-team">{{::event.homeTeamName}}</div>
+        <div class="event-team">{{::event.awayTeamName}}</div>
+        <a href="#!/event/{{::event.eventId}}" class="event-more">More Bets</a>
+      </div>
+      <div class="event-score">
+        <div class="score-item" ng-show="event.isInplay">{{event.homeTeamScore}}</div>
+        <div class="score-item" ng-show="event.isInplay">{{event.awayTeamScore}}</div>
+      </div>
+      <div class="event-markets">
+        <div class="bet-btn" ng-repeat="outcome in event.markets[0].outcomes" ng-class="{separator: $index > 0}">
+          <span>{{outcome.oddDecimal | number:2}}</span>
+        </div>
+      </div>
+    </div>
+</div>

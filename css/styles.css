@@ -1,0 +1,148 @@
+body{
+  background-color: #F1F1F1;
+  font-family: Arial,sans-serif;
+  margin: 0;
+}
+
+.card {
+  margin: 8px;
+  border-radius: 4px;
+  background-color: #FFF;
+  box-shadow: 0 0 3px #BBB;
+  padding: 12px 0;
+}
+
+.card .card-title {
+  padding: 8px 12px 14px 12px;
+  font-size: 20px;
+}
+
+.card .card-header {
+  display: flex;
+  height: 18px;
+  line-height: 18px;
+  background: #eaeaea;
+  color: #444;
+  text-transform: uppercase;
+  font-size: 10px;
+  padding: 0 12px;
+}
+
+.card .card-header .header-detail{
+  width: 50%;
+  font-weight: bold;
+}
+
+.card .card-header .header-markets{
+  display: flex;
+  width: 50%;
+  text-align: center;
+}
+
+.card .card-header .header-markets .market{
+  width: 32%;
+}
+
+.card .event {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  padding: 6px 12px 0 12px;
+}
+
+.card .event::after {
+  content: '';
+  display: flex;
+  height: 1px;
+  width: 100%;
+  margin-top: 6px;
+  background-color: #eaeaea;
+}
+
+.card .event.inplay{
+  background-color: rgba(201,218,42,0.1);
+}
+
+.card .event .event-details{
+  height: 100%;
+  min-height: 60px;
+  width: 42%;
+  overflow: visible;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.event-details .event-time{
+  line-height: 10px;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #aaa;
+}
+
+.event-details .event-team{
+  font-size: 13px;
+    color: #444;
+    margin-top: 4px;
+}
+
+.event-details .event-more{
+  font-size: 9px;
+  color: #aaa;
+  margin-top: 4px;
+  text-decoration: none;
+}
+
+.event-details .event-more::after{
+  content: '\003E';
+  margin-left: 2px;
+}
+
+.card .event .event-score{
+  height: 100%;
+  min-height: 60px;
+  width: 8%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.event-score .score-item{
+  line-height: 13px;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.card .event .event-markets{
+  width: 50%;
+  display: flex;
+}
+
+.bet-btn {
+  height: 36px;
+  color: #4f732c;
+  background: #c9da2a;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 2px;
+  box-shadow: inset 0 -2px #9fad21;
+  width: 32%;
+}
+
+.bet-btn:hover, .bet-btn:active, .bet-btn:focus {
+  color: white;
+  background: #9fad21;
+  box-shadow: inset 0 -2px #7e891b;
+}
+
+.bet-btn > span{
+  line-height: 34px;
+}
+
+.separator {
+  margin-left: 2%;
+}

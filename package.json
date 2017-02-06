@@ -1,0 +1,14 @@
+{
+  "name": "seium-webapp",
+  "version": "1.0.0",
+  "description": "seium-webapp",
+  "main": "index.html",
+  "scripts": {
+    "start-webapp": "http-server . -p 9500"
+  },
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  }
+}
