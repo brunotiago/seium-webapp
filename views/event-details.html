@@ -1,3 +1,64 @@
-<div>
-  Event Detail {{eventDetailsCtrl.eventId}}
+<div class="topbar">
+  <div class="back" ng-click="eventDetailsCtrl.goBack()"></div>
+  <div class="logo"></div>
+</div>
+<div class="scoreboard-wrapper">
+  <div class="event-name">
+    <span class="home-team">{{::eventDetailsCtrl.event.homeTeamName}}</span>
+    <span class="vs-team">&nbsp;v&nbsp;</span>
+    <span class="away-team">{{::eventDetailsCtrl.event.awayTeamName}}</span>
+  </div>
+  <div class="scoreboard-header" ng-if="!eventDetailsCtrl.event.isInplay">
+    <span class="event-time">{{::eventDetailsCtrl.event.startTime}} •&nbsp;</span>
+    <span class="competition">{{::eventDetailsCtrl.event.competition}}</span>
+  </div>
+  <div class="scoreboard" ng-if="eventDetailsCtrl.event.isInplay">
+    <div class="scoreboard-competition">{{::eventDetailsCtrl.event.competition}}</div>
+    <div class="scoreboard-scores">
+      <div class="home-team-jersey">
+        <div class="jersey"></div>
+        <div class="team-name">{{::eventDetailsCtrl.event.homeTeamName}}</div>
+      </div>
+      <div class="score">
+        <span>{{eventDetailsCtrl.event.homeTeamScore}}</span>
+        <span>:</span>
+        <span>{{eventDetailsCtrl.event.awayTeamScore}}</span>
+      </div>
+      <div class="away-team-jersey">
+        <div class="jersey"></div>
+        <div class="team-name">{{::eventDetailsCtrl.event.awayTeamName}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card">
+    <div class="card-title">Popular Markets</div>
+    <div class="market green-border">
+      <div class="market-title">{{::eventDetailsCtrl.event.markets[0].marketTitle}}</div>
+      <div class="market-header">
+        <span>win</span>
+        <span>draw</span>
+        <span>win</span>
+      </div>
+      <div class="market-outcomes three-outcomes">
+        <div class="bet-btn">
+          <span>{{eventDetailsCtrl.event.markets[0].outcomes[0].oddDecimal | number:2}}</span>
+        </div>
+        <div class="bet-btn">
+          <span>{{eventDetailsCtrl.event.markets[0].outcomes[1].oddDecimal | number:2}}</span>
+        </div>
+        <div class="bet-btn">
+          <span>{{eventDetailsCtrl.event.markets[0].outcomes[2].oddDecimal | number:2}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="market" ng-repeat="market in eventDetailsCtrl.event.markets" ng-if="$index > 0" ng-class-odd="'green-border'">
+      <div class="market-title">{{::market.marketTitle}}</div>
+      <div class="market-outcomes outright-outcome" ng-repeat="outcome in market.outcomes">
+        <div class="outcome-description">{{::outcome.outcomeTitle}}</div>
+        <div class="bet-btn">
+          <span>{{outcome.oddDecimal | number:2}}</span>
+        </div>
+      </div>
+    </div>
 </div>

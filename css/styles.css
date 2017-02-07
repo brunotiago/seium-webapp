@@ -4,6 +4,37 @@ body{
   margin: 0;
 }
 
+.topbar {
+  display: flex;
+  height: 40px;
+  padding: 0 8px;
+  background-color: #004833;
+  background-image: linear-gradient(-45deg,#00412e 25%,transparent 25%,transparent 50%,#00412e 50%,#00412e 75%,transparent 75%,transparent);
+  background-size: 30px 30px;
+}
+
+.topbar .back{
+  font-size: 33px;
+  color: #fff;
+  width: 33px;
+  transform: rotate(180deg);
+  cursor: pointer;
+}
+
+.topbar .back::after{
+  content: '\2794';
+}
+
+.topbar .logo{
+  background-image: url(../assets/sei-logo.png);
+  background-repeat: no-repeat;
+  width: 35px;
+  height: 30px;
+  background-size: contain;
+  margin-top: 8px;
+  margin-left: auto;
+}
+
 .card {
   margin: 8px;
   border-radius: 4px;
@@ -41,6 +72,7 @@ body{
 
 .card .card-header .header-markets .market{
   width: 32%;
+    border-left: 0;
 }
 
 .card .event {
@@ -145,4 +177,203 @@ body{
 
 .separator {
   margin-left: 2%;
+}
+
+
+
+.scoreboard-wrapper {
+  padding: 8px;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../assets/bg_football.jpg);
+}
+
+.scoreboard-wrapper .event-name {
+  font-weight: bold;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  margin: 0;
+  height: 36px;
+  color: white;
+  text-align: center;
+  border: 0;
+  border-radius: 3px;
+  padding-top: 0;
+  margin-bottom: 8px;
+}
+
+.scoreboard-wrapper .event-name .home-team {
+  display: block;
+  font-size: 12px;
+  line-height: 12px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  width: 46%;
+  white-space: normal;
+  text-align: right;
+  height: auto;
+  float: left;
+  padding-top: 12px;
+}
+
+.scoreboard-wrapper .event-name .vs-team {
+  float: left;
+  font-weight: bold;
+  width: 8%;
+  text-align: center;
+  padding-top: 12px;
+}
+
+.scoreboard-wrapper .event-name .away-team {
+  display: block;
+  display: -webkit-box;
+  font-size: 12px;
+  line-height: 12px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  width: 38%;
+  white-space: normal;
+  text-align: left;
+  height: auto;
+  padding-top: 12px;
+}
+
+.scoreboard-wrapper .scoreboard-header {
+  padding: 0 12px;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 10px;
+  font-weight: normal;
+  height: 24px;
+}
+
+.scoreboard-wrapper .scoreboard-header .event-time{
+  display: block;
+  padding-top:7px;
+  float: left;
+}
+
+.scoreboard-wrapper .scoreboard-header .competition{
+  display: block;
+  padding-top:7px;
+  float: left;
+}
+
+.scoreboard {
+  padding: 0 12px;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.scoreboard .scoreboard-competition {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    font-size: 10px;
+    padding: 11px 0;
+}
+
+.scoreboard .scoreboard-scores {
+  display: flex;
+  padding: 35px 0 24px 0;
+}
+
+.scoreboard-scores .home-team-jersey {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33.33%;
+}
+
+.scoreboard-scores .jersey{
+  background-image: url(../assets/default-jersey.png);
+      background-size: contain;
+  width: 34px;
+  height: 34px;
+}
+
+.scoreboard-scores .team-name{
+  margin-top: 8px;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  height: 24px;
+}
+
+.scoreboard-scores .score {
+  width: 33.33%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 36px;
+  font-weight: bold;
+
+}
+
+.scoreboard-scores .away-team-jersey {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33.33%;
+}
+
+
+.market {
+  border-left: 4px solid #389fda;
+}
+
+.green-border {
+  border-left-color: #7cc576;
+}
+
+.market-title {
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: bold;
+  background-color: #f1f1f1;
+  padding-left: 12px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.market-header {
+  display: flex;
+  height: 18px;
+  line-height: 18px;
+  background: #eaeaea;
+  color: #444;
+  text-transform: uppercase;
+  font-size: 10px;
+  justify-content: space-around;
+}
+
+.market-outcomes {
+  display: flex;
+  height: 48px;
+  background: #fff;
+  margin: 0 8px;
+  align-items: center;
+}
+
+.three-outcomes{
+  justify-content: space-around;
+}
+
+.outright-outcome {
+  border-bottom: 1px solid #eaeaea;
+}
+.outright-outcome .outcome-description {
+  font-size: 13px;
+  color: #444;
+  flex-grow: 1;
+}
+
+.outright-outcome .bet-btn {
+  flex-grow: 0.05;
 }

@@ -1,3 +1,6 @@
+<div class="topbar">
+  <div class="logo"></div>
+</div>
 <div class="card">
     <div class="card-title">Football Matches</div>
     <div class="card-header">
@@ -13,7 +16,7 @@
         <div class="event-time">{{::event.startTime}}</div>
         <div class="event-team">{{::event.homeTeamName}}</div>
         <div class="event-team">{{::event.awayTeamName}}</div>
-        <a href="#!/event/{{::event.eventId}}" class="event-more">More Bets</a>
+        <a href="/event/{{::event.eventId}}" class="event-more">More Bets</a>
       </div>
       <div class="event-score">
         <div class="score-item" ng-show="event.isInplay">{{event.homeTeamScore}}</div>

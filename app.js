@@ -1,5 +1,6 @@
 (function(){
-    var config = function($routeProvider){
+    var config = function($routeProvider, $locationProvider){
+        $locationProvider.html5Mode(true);
         $routeProvider
             .when('/', {
                 templateUrl: 'views/event-list.html',
@@ -15,5 +16,5 @@
     };
 
     var app = angular.module('seium-webapp', ['ngRoute', 'btford.socket-io']);
-    app.config(['$routeProvider', config]);
+    app.config(['$routeProvider', '$locationProvider', config]);
 }());

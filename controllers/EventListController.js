@@ -1,64 +1,18 @@
 (function () {
-    var EventListController = function (socketService) {
-      this.events = [{
-        eventId: 123,
-        homeTeamName: 'FC Porto',
-        awayTeamName: 'Sporting CP',
-        homeTeamScore: 1,
-        awayTeamScore: 0,
-        startTime: '19:00',
-        isInplay: true,
-        markets: [{
-          marketTitle: "Win-Draw-Win",
-          outcomes: [{
-            outcomeTitle: "",
-            oddDecimal: 1.20
-          },
-          {
-            outcomeTitle: "",
-            oddDecimal: 2.00
-          },
-          {
-            outcomeTitle: "",
-            oddDecimal: 1.80
-          }]
-        }]
-      },
-      {
-        eventId: 124,
-        homeTeamName: 'FC Porto',
-        awayTeamName: 'Sporting CP',
-        homeTeamScore: 0,
-        awayTeamScore: 1,
-        startTime: '19:00',
-        isInplay: false,
-        markets: [{
-          marketTitle: "Win-Draw-Win",
-          outcomes: [{
-            outcomeTitle: "",
-            oddDecimal: 1.20
-          },
-          {
-            outcomeTitle: "",
-            oddDecimal: 2.00
-          },
-          {
-            outcomeTitle: "",
-            oddDecimal: 1.80
-          }]
-        }]
-      }];
+    var EventListController = function (httpService, socketService) {
+      var me = this;
 
+      var onEventsSuccess = function (data) {
+          me.events = data;
+      };
 
-      socketService.on('event update', function (data) {
-          console.log(data);
-      });
+      var onEventsError = function (reason) {
+          me.events = [];
+      };
 
-      socketService.emit('subscribe event', {
-            eventId: 'angular'
-        });
+      httpService.getEventsList().then(onEventsSuccess, onEventsError);
     };
 
     var app = angular.module('seium-webapp');
-    app.controller('EventListController', ['socketService', EventListController]);
+    app.controller('EventListController', ['httpService', 'socketService', EventListController]);
 } ());
