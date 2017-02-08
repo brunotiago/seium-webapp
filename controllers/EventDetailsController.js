@@ -2,18 +2,21 @@
 	var EventDetailsController = function ($location, $routeParams, $timeout, httpService, socketService) {
 		var me = this;
 
+		//Redirect to homepage
 		me.goBack = function () {
 			$location.url('/');
 		};
 
+		//Sets the service response to the controller's event property that is binded to the view
 		var onEventDetailSuccess = function (data) {
 			me.event = data;
 		};
 
-		var onEventDetailError = function (reason) {
+		var onEventDetailError = function () {
 			me.event = {};
 		};
 
+		//Loops through the all the odds and triggers the lowered and raised state
 		var triggerOutcomesState = function (eventData, updatedEventData) {
 			if (eventData) {
 				Object.keys(updatedEventData.markets).forEach(function (marketId) {
@@ -36,6 +39,7 @@
 			return updatedEventData;
 		}
 
+		//Resets the odds state
 		var resetBetButtonState = function (marketId, outcomeId) {
 			me.event.markets[marketId].outcomes[outcomeId].oddLowered = false;
 			me.event.markets[marketId].outcomes[outcomeId].oddRaised = false;
@@ -43,10 +47,12 @@
 
 		httpService.getEventDetail($routeParams.eventId).then(onEventDetailSuccess, onEventDetailError);
 
+		//Subscribe to the event topic on Web Socket
 		socketService.emit('SUBSCRIBE_EVENT', {
 			eventId: $routeParams.eventId
 		});
 
+		//Callback to update the controller's event property on Web Socket update
 		socketService.on('EVENT_UPDATE', function (updatedEventData) {
 			me.event = triggerOutcomesState(me.event, updatedEventData);
 		});

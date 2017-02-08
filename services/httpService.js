@@ -2,6 +2,7 @@
 	var httpService = function ($http) {
 		var baseUrl = 'http://localhost:2015';
 
+		//Fetch events list
 		var getEventsList = function () {
 			return $http.get(baseUrl + '/events')
 			.then(function (response) {
@@ -9,6 +10,7 @@
 			});
 		};
 
+		//Fetch event details by id
 		var getEventDetail = function (eventId) {
 			return $http.get(baseUrl + '/events/' + eventId)
 			.then(function (response) {

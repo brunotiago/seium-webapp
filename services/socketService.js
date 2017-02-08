@@ -2,6 +2,7 @@
 	var socketService = function (socketFactory) {
 		var serverBaseUrl = 'http://localhost:2015';
 
+		//Connect to WS
 		var myIoSocket = io.connect(serverBaseUrl, {
 			upgrade: false,
 			transports: ['websocket']
