@@ -1,19 +1,19 @@
 (function () {
-    var socketService = function (socketFactory) {
-        var serverBaseUrl = 'http://localhost:2015';
+	var socketService = function (socketFactory) {
+		var serverBaseUrl = 'http://localhost:2015';
 
-        var myIoSocket = io.connect(serverBaseUrl, {
-            upgrade: false,
-            transports: ['websocket']
-          });
+		var myIoSocket = io.connect(serverBaseUrl, {
+			upgrade: false,
+			transports: ['websocket']
+		});
 
-        var socket = socketFactory({
-            ioSocket: myIoSocket
-        });
+		var socket = socketFactory({
+			ioSocket: myIoSocket
+		});
 
-        return socket;
-    };
+		return socket;
+	};
 
-    var module = angular.module('seium-webapp');
-    module.factory('socketService', socketService);
+	var module = angular.module('seium-webapp');
+	module.factory('socketService', socketService);
 }());
