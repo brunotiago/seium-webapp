@@ -1,10 +1,11 @@
-# Tornado tests status
+# SEIUM Webapp
 
 ### Prerequisites
 
 Your project and its dependencies require:
 - [Node](https://nodejs.org/)
 - [Git](http://git-scm.com/)
+- [Bower](https://bower.io/)
 
 ## Installing and running the project
 
@@ -12,10 +13,10 @@ Your project and its dependencies require:
 
 2. Install project `dependencies`:
     ```bash
-    npm install
+    npm run install-dependencies
     ```
 
 3. Run project:
     ```bash
-    npm start
+    npm run start-webapp
     ```
